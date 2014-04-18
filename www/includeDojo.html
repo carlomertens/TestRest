@@ -1,0 +1,32 @@
+<script type="text/javascript">
+var djConfig = {	
+				modulePaths: {"bidi": "dojo/widgets/bidi"},
+				locale: egl__htmlLocale.replace(/_/, "-").toLowerCase() };
+//	var djConfig = { locale: egl__htmlLocale.replace(/_/, "-").toLowerCase() };
+	egl.urlPrefix = "";
+	egl.dojoProvider = "Local Workspace, 1.7.2, project: com.ibm.egl.rui.dojo.runtime.local_1.7.2";
+</script>
+<script src="dojo/dojo.js"></script>
+
+<style type="text/css">
+	@import "dojo/resources/dojo.css";		
+	@import "dojox/grid/resources/Grid.css";	
+	
+	.dojoxGrid table { margin: 0; }
+</style>
+
+<link href="dijit/themes/claro/claro.css" type="text/css" rel="stylesheet" media="screen" id="EGLDOJOTheme_CSS" />
+<link href="dojox/grid/resources/claroGrid.css" type="text/css" rel="stylesheet" media="screen" id="EGLDOJOGridTheme_CSS" />
+
+<style>
+	/* Fix for 103183 */
+	.claro .dijitButton .dijitButtonNode, 
+	.claro .dijitDropDownButton .dijitButtonNode, 
+	.claro .dijitComboButton .dijitButtonNode, 
+	.claro .dijitToggleButton .dijitButtonNode
+	{
+		color: inherit;
+	}
+</style>
+<script type="text/javascript">
+</script>

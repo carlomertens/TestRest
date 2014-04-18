@@ -1,0 +1,40 @@
+egl.defineWidget("dojo.widgets","DojoTextField","dojo.widgets","DojoValidationBase","div",{"constructor":function(){
+dojo.require("dijit.form.ValidationTextBox");
+this.validators=[];
+this.isBidi=false;
+var _1=this;
+setTimeout(function(){
+_1.renderWhenDojoIsDoneLoading();
+},1);
+},"createDojoWidget":function(_2){
+this._setCommonProp();
+if(this.required===undefined){
+this._args.required=false;
+}
+if(this.isBidi==false){
+this.dojoWidget=new dijit.form.ValidationTextBox(this._args,_2);
+}else{
+this._args.isVisualMode=this.textLayoutThis=="Visual";
+if(this.widgetOrientationThis=="rtl"){
+this._args.dir="rtl";
+}else{
+this._args.dir="ltr";
+}
+dojo.require("bidi.ValidationTextBoxVisBidi");
+this.dojoWidget=new bidi.ValidationTextBoxVisBidi(this._args,_2);
+}
+this.setValidators(this.validators);
+this._setTextboxStyle();
+this.dojoWidget.startup();
+},"setBiDiMarkers":function(){
+if(this.isBidi==false){
+if(this.reverseTextDirectionThis=="Yes"||this.widgetOrientationThis=="rtl"||this.textLayoutThis=="Visual"){
+this.isBidi=true;
+}
+}else{
+if(this.isBidi==true&&this.dojoWidget){
+this.eze$$DOMElement.removeChild(this.dojoWidget);
+this.createDojoWidget(this.parent);
+}
+}
+}});
